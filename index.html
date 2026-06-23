@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://127.0.0.1:5500/Project%20work/project1.html#gal-lery -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directorate of Sports &amp; Campus Recreation</title>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(-45deg,#0d1b2a,#1b263b,#415a77,#778da9);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* HEADER */
+
+header{
+    background:rgba(13,27,42,0.95);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ffb703;
+}
+
+/* HERO */
+
+.hero{
+    background:
+    linear-gradient(rgba(13,27,42,0.75),
+    rgba(0,0,0,0.75)),
+    url(Images/background.jpg);
+    background-size:cover;
+    background-position:center;
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    animation:fadeIn 2s ease;
+}
+
+.hero-content h1{
+    font-size:60px;
+    text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+.hero-content p{
+    font-size:22px;
+    margin-top:15px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.bar{
+    width:100%;
+    height:20px;
+    background:rgb(194, 194, 10);
+    border-radius:5px;
+}
+/* LIVE SCORE */
+
+.live-score{
+    background:#ffb703;
+    color:black;
+    padding:15px;
+    overflow:hidden;
+    white-space:nowrap;
+    font-weight:bold;
+}
+
+.live-score span{
+    display:inline-block;
+    padding-left:100%;
+    animation:scroll 18s linear infinite;
+}
+
+@keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-100%);}
+}
+
+/* TITLES */
+
+.section-title{
+    text-align:center;
+    color:white;
+    font-size:38px;
+    margin:60px 0 30px;
+}
+
+.section-title::after{
+    content:'';
+    display:block;
+    width:100px;
+    height:4px;
+    background:#ffb703;
+    margin:10px auto;
+    border-radius:5px;
+}
+
+/* SPORTS TEAMS */
+
+.sports-container{
+    display: flow-root;
+    gap:20px;
+    overflow-x:auto;
+    padding:20px;
+}
+
+.card{
+    min-width:280px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    padding:25px;
+    color:white;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    animation:float 4s ease-in-out infinite;
+}
+
+.card:nth-child(2){animation-delay:.5s;}
+.card:nth-child(3){animation-delay:1s;}
+.card:nth-child(4){animation-delay:1.5s;}
+.card:nth-child(5){animation-delay:2s;}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(to right,#ffb703,#00b4d8);
+}
+
+.card h3{
+    color:#ffb703;
+    margin-bottom:15px;
+}
+
+.score{
+    margin-top:15px;
+    background:#023e8a;
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* TABLE CONTAINER */
+
+.table-container{
+    width:95%;
+    margin:40px auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* FIXTURES */
+
+.fixtures{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fixtures th{
+    background:linear-gradient(135deg,#001f54,#034078);
+    color:white;
+    padding:20px;
+}
+
+.fixtures td{
+    padding:18px;
+    text-align:center;
+}
+
+.fixtures tr:nth-child(even){
+    background:#2266cc;
+}
+
+.fixtures tr:nth-child(odd){
+    background:#8794a7;
+}
+
+.fixtures tr:hover{
+    background:#d9f0ff;
+}
+
+.fixture-badge{
+    background:#28a745;
+    color:white;
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* SCHEDULE */
+
+.schedule{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.schedule th{
+    background:linear-gradient(135deg,#1b4332,#2d6a4f);
+    color:white;
+    padding:20px;
+}
+
+.schedule td{
+    padding:18px;
+    text-align:center;
+}
+
+.schedule tr:nth-child(even){
+    background:#929693;
+}
+
+.schedule tr:nth-child(odd){
+    background:#0aaf36;
+}
+
+
+.schedule tr:hover{
+    background:#c7f9cc;
+}
+
+.time-badge{
+    background:#ffb703;
+    color:black;
+    padding:7px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* GALLERY */
+.gallery{
+    text-align:center;
+    color:white;
+    font-size:38px;
+    margin:60px 0 30px;
+}
+
+.gallery::after{
+    content:'';
+    display:block;
+    width:100px;
+    height:4px;
+    background:#ffb703;
+    margin:10px auto;
+    border-radius:5px;
+}
+
+.gallery-shop {
+    width:95%;
+    margin:40px auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.gallery-shop img{
+    width:100%;
+    max-width:600px;
+    height:auto;
+    display:block;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    animation:float 4s ease-in-out infinite;
+}
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    background:#0d1b2a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🏆 Sports Unit</div>
+
+    <nav>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/Project%20work/project1.html#">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/Project%20work/project1.html#sport-team">Teams</a></li>
+            <li><a href="http://127.0.0.1:5500/Project%20work/project1.html#fix-tures">Fixtures</a></li>
+            <li><a href="http://127.0.0.1:5500/Project%20work/project1.html#sche-dule">Schedule</a></li>
+            <li><a href="http://127.0.0.1:5500/Project%20work/project1.html#gal-lery">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Directorate of Sports &amp; Campus Recreation</h1>
+        <p>Inter-College Sports Competitions • VC Cup Fixtures • Team Listings</p>
+    </div>
+</section>
+
+<section id="sport-team">
+    <div class="bar"></div>
+
+<h2 class="section-title">🏅 Sports Teams</h2>
+
+<div class="sports-container">
+
+<div class="card">
+<h3>⚽ Football</h3>
+<p>Team A: Eagles FC</p>
+<p>Team B: Lions FC</p>
+<div class="score">2 - 1</div>
+</div>
+
+<div class="card">
+<h3>🏀 Basketball</h3>
+<p>Team A: Thunder Hoops</p>
+<p>Team B: Titans BC</p>
+<div class="score">78 - 72</div>
+</div>
+
+<div class="card">
+<h3>🏐 Volleyball</h3>
+<p>Team A: Sky Spikers</p>
+<p>Team B: Power Smashers</p>
+<div class="score">3 - 2</div>
+</div>
+
+<div class="card">
+<h3>🏸 Badminton</h3>
+<p>Team A: Shuttle Kings</p>
+<p>Team B: Ace Masters</p>
+<div class="score">21 - 18</div>
+</div>
+
+<div class="card">
+<h3>🏓 Table Tennis</h3>
+<p>Team A: Spin Warriors</p>
+<p>Team B: Ping Pong Stars</p>
+<div class="score">4 - 3</div>
+</div>
+
+</div>
+</section>
+
+<section id="fix-tures">
+<h2 class="section-title">🏆 VC CUP CHAMPIONSHIP FIXTURES</h2>
+
+<section class="table-container">
+
+<table class="fixtures">
+<tbody><tr>
+<th>Sport</th>
+<th>Team A</th>
+<th>Team B</th>
+<th>Date</th>
+<th>Venue</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>⚽ Football</td>
+<td>Eagles FC</td>
+<td>Lions FC</td>
+<td>📅 15 July 2026</td>
+<td>🏟 Main Stadium</td>
+<td><span class="fixture-badge">UPCOMING</span></td>
+</tr>
+
+<tr>
+<td>🏀 Basketball</td>
+<td>Thunder Hoops</td>
+<td>Titans BC</td>
+<td>📅 16 July 2026</td>
+<td>🏀 Indoor Court</td>
+<td><span class="fixture-badge">UPCOMING</span></td>
+</tr>
+
+<tr>
+<td>🏐 Volleyball</td>
+<td>Sky Spikers</td>
+<td>Power Smashers</td>
+<td>📅 17 July 2026</td>
+<td>🏟 Sports Arena</td>
+<td><span class="fixture-badge">UPCOMING</span></td>
+</tr>
+
+<tr>
+<td>🏸 Badminton</td>
+<td>Shuttle Kings</td>
+<td>Ace Masters</td>
+<td>📅 18 July 2026</td>
+<td>🏸 Recreation Hall</td>
+<td><span class="fixture-badge">UPCOMING</span></td>
+</tr>
+
+<tr>
+<td>🏓 Table Tennis</td>
+<td>Spin Warriors</td>
+<td>Ping Pong Stars</td>
+<td>📅 19 July 2026</td>
+<td>🏓 Sports Centre</td>
+<td><span class="fixture-badge">UPCOMING</span></td>
+</tr>
+</tbody></table>
+
+</section>
+</section>
+
+<section id="sche-dule">
+
+<h2 class="section-title">📅 WEEKLY RECREATION PROGRAMME</h2>
+
+<section class="table-container">
+
+<table class="schedule">
+<tbody><tr>
+<th>Day</th>
+<th>Activity</th>
+<th>Time</th>
+<th>Location</th>
+</tr>
+
+<tr>
+<td>Monday</td>
+<td>⚽ Football Training</td>
+<td><span class="time-badge">4:00 PM</span></td>
+<td>🏟 Main Stadium</td>
+</tr>
+
+<tr>
+<td>Tuesday</td>
+<td>🏀 Basketball Practice</td>
+<td><span class="time-badge">4:00 PM</span></td>
+<td>🏀 Indoor Court</td>
+</tr>
+
+<tr>
+<td>Wednesday</td>
+<td>🏐 Volleyball Training</td>
+<td><span class="time-badge">4:00 PM</span></td>
+<td>🏟 Sports Arena</td>
+</tr>
+
+<tr>
+<td>Thursday</td>
+<td>🏸 Badminton Session</td>
+<td><span class="time-badge">4:00 PM</span></td>
+<td>🏸 Recreation Hall</td>
+</tr>
+
+<tr>
+<td>Friday</td>
+<td>🏓 Table Tennis Tournament</td>
+<td><span class="time-badge">4:00 PM</span></td>
+<td>🏓 Sports Centre</td>
+</tr>
+
+</tbody></table>
+
+</section>
+</section>
+
+<section id="gal-lery">
+    <h2 class="gallery">GALLERY SHOP</h2>
+    
+    <section class="gallery-shop">
+        <img src="./index_files/pitch.jpg">
+        <img src="./index_files/football.jpg">
+        <img src="./index_files/basketball.jpg">
+        <img src="./index_files/volleyball.jpg">
+    </section>
+</section>
+
+<footer>
+<p>© 2026 Directorate of Sports &amp; Campus Recreation | All Rights Reserved</p>
+</footer>
+
+<div class="live-score">
+<marquee>
+🔴 LIVE: Eagles FC 2-1 Lions FC |
+Thunder Hoops 78-72 Titans BC |
+Sky Spikers 3-2 Power Smashers |
+VC CUP 2026
+</marquee>
+</div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
